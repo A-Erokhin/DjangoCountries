@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header>
+   <a href="/"> Домой </a>/<a href="/countries-list"> Список стран </a>
+</header>
+<h2>Список стран</h2>
+<ol>
+    {% for strana in countries %}
+    <a href="/country/{{ strana.country }}"><li>{{ strana.country }}</li></a>
+    {% endfor %}
+</ol>
+</body>
+</html>
