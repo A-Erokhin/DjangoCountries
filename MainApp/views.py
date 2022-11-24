@@ -13,6 +13,7 @@ def countries_list(request):
     return render(request, 'countries-list.html', context)
 
 def country_page(request, name):
+    # FIXME: данная функция реализована не верно. Запустите и проверьте на нескольких странах
     for this_country in countries:
         context = {}
         if this_country['country'] == name:

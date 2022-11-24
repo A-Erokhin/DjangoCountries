@@ -10,6 +10,7 @@
 </header>
 <h2>Список стран</h2>
 <ol>
+{# FIXME: использование транслита в именовании переменной недопустимо! #}
     {% for strana in countries %}
     <a href="/country/{{ strana.country }}"><li>{{ strana.country }}</li></a>
     {% endfor %}

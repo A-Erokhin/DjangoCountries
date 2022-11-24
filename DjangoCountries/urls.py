@@ -22,3 +22,5 @@ urlpatterns = [
     path('countries-list', views.countries_list),
     path('country/<str:name>', views.country_page)
 ]
+
+# FIXME: Под git затянули виртуальное окружение, нужно удалить.
