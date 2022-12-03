@@ -6,13 +6,44 @@
 </head>
 <body>
 <header>
-   <a href="/"> Домой </a>/<a href="/countries-list"> Список стран </a>
+   <a href="/"> Домой </a>/<a href="/countries-list/page=1"> Список стран </a>
 </header>
+
+<p>Страны, начинающиеся на букву:</p>
+{% for letter in alphabet %}
+    <a href="/countries-startred-from/{{ letter }}">{{ letter }}</a> &nbsp &nbsp
+{% endfor %}
+<br>
+
 <h2>Список стран</h2>
-<ol>
-    {% for strana in countries %}
-    <a href="/country/{{ strana.country }}"><li>{{ strana.country }}</li></a>
+
+<ol start="{{ start }}">
+    {% for this_country in countries_on_the_page %}
+    <a href="/country/{{ this_country.country }}"><li>{{ this_country.country }}</li></a>
     {% endfor %}
 </ol>
+
+Страницы: &nbsp
+{% if pg.has_previous and pg.number > 3 %}
+    <a href="/countries-list/page=1">1</a>&nbsp &nbsp
+    {% if pg.number > 4%}
+        ... &nbsp &nbsp
+    {% endif %}
+{% endif %}
+
+{% for p in p_range %}
+    {% if pg.number == p %}
+        <span>{{ p }}</span>&nbsp &nbsp
+    {% elif p >= pg.number|add:-2 and p <= pg.number|add:2 %}
+        <a href="/countries-list/page={{ p }}">{{ p }}</a>&nbsp &nbsp
+    {% endif %}
+{% endfor %}
+
+{% if pg.has_next and pg.number < c2 %}
+    {% if pg.number < c3 %}
+        ... &nbsp &nbsp
+    {% endif %}
+    <a href="/countries-list/page={{ count }}">{{ count }}</a>
+{% endif %}
 </body>
 </html>

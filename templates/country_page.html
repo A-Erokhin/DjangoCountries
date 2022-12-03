@@ -6,8 +6,9 @@
 </head>
 <body>
 <header>
-   <a href="/"> Домой </a>/<a href="/countries-list"> Список стран </a>
+   <a href="/"> Домой </a>/<a href="/countries-list/page=1"> Список стран </a>
 </header>
+
 <h2>Страна: {{ this_country.country }}</h2>
 Языки:<br>
 <ul>
@@ -15,5 +16,6 @@
         <li>{{ lang }}</li>
     {% endfor %}
 </ul>
+
 </body>
 </html>
